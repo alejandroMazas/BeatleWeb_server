@@ -2,7 +2,6 @@ const router = require("express").Router();
 
 const { isAuthenticated } = require("../middlewares/jwt.middleware");
 const Comment = require('./../models/Comment.model')
-const User = require('./../models/User.model')
 
 router.get('/comments', (req, res) => {
 

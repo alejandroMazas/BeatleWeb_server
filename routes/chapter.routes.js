@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const { json } = require("express/lib/response");
-const Chapter = require('./../models/chapter.model')
+const Chapter = require('./../models/Chapter.model')
 const { isAuthenticated } = require("../middlewares/jwt.middleware");
 
 router.get('/allChapters', (req, res) => {
