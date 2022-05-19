@@ -23,9 +23,15 @@ router.get('/chapter/:id', (req, res) => {
         .catch(err => res.status(500).json(err))
 })
 
-router.post('/newChapter', (req, res) => {
+router.post('/newChapter', isAuthenticated, (req, res) => {
 
     const { title, number, synopsys, cover, pages } = req.body
+
+    const { role } = req.payload
+
+    if (role !== 'ADMIN') {
+        return res.status(403).json({ message: 'forbidden' })
+    }
 
     Chapter
         .create({ title, number, synopsys, cover, pages })
@@ -37,6 +43,11 @@ router.put('/chapter/:id/edit', isAuthenticated, (req, res) => {
 
     const { title, number, synopsys, cover, pages } = req.body
     const { id } = req.params
+    const { role } = req.payload
+
+    if (role !== 'ADMIN') {
+        return res.status(403).json({ message: 'forbidden' })
+    }
 
     Chapter
         .findByIdAndUpdate(id, { title, number, synopsys, cover, pages }, { new: true })
@@ -47,6 +58,12 @@ router.put('/chapter/:id/edit', isAuthenticated, (req, res) => {
 router.delete('/chapter/:id/delete', isAuthenticated, (req, res) => {
 
     const { id } = req.params
+
+    const { role } = req.payload
+
+    if (role !== 'ADMIN') {
+        return res.status(403).json({ message: 'forbidden' })
+    }
 
     Chapter
         .findByIdAndDelete(id)
