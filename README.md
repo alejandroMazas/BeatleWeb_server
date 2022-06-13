@@ -53,32 +53,7 @@
 |  /iniciar-sesión            |  Formulario de inicio de sesión                 |
 
 
-# Components distribution
 
-|--- app.js
-|--- Pages
-|      |--- Inicio
-|               |--- Components
-|                        |--- Navbar 
-|      |--- Capitulos
-|               |--- Components
-|                        |--- Card List
-|      |--- Detalles
-|               |--- Components
-|                        |--- pages list
-|      |--- Paginas
-|      |--- Otros
-|               |--- Components 
-|                        |--- list
-|      |--- Enlaces
-|               |--- Components
-|                        |--- list
-|      |--- Registro
-|               |--- Components
-|                        |--- signup form 
-|      |--- Iniciar sesión
-|               |--- Components
-|                        |--- login form
 
 
 
