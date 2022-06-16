@@ -8,6 +8,14 @@ router.get('/allChapters', (req, res) => {
     Chapter
         .find()
         .then(allChapters => {
+            allChapters.sort(function (a, b) {
+                if (a.number > b.number) {
+                    return 1
+                }
+                if (a.number < b.number) {
+                    return -1
+                }
+            })
             res.json(allChapters)
         })
         .catch(err => res.status(500).json(err))
